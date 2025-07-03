@@ -1,0 +1,16 @@
+.env
+# Backend dependencies
+/server/node_modules/
+
+# Frontend dependencies
+/client/node_modules/
+
+# Just in case someone installs at root (not recommended)
+/node_modules/
+
+# Build artifacts
+/client/dist/
+/server/dist/
+
+# Env secrets
+/server/.env
