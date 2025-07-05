@@ -36,5 +36,24 @@ router.post("/", async (req:Request, res:Response) => {
   }
 });
 
+
+router.get("/", async (_req: Request, res: Response) => {
+    try {
+        const { data, error} = await supabase
+        .from("notes")
+        .select("*")
+        .order("created_at", {ascending: false});
+
+        if (error) {
+            console.error("❌ Supabase fetch error:", error.message);
+            return;
+        }
+        res.status(200).json(data)
+    } catch (e) {
+        console.error("Error retrieving notes,", e);
+        res.status(500).json({ error: "Unexpected error while fetching notes." });
+    }
+})
+
 export default router;
 
