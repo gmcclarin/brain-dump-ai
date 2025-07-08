@@ -6,7 +6,8 @@ export default function Home () {
         sx={{
             display:"flex",
             width: "100%",
-            justifyContent: "center"
+            justifyContent: "center",
+            flex: 1
         }}>
            <Typography variant="h2">Brain Dump 🧠 ✨</Typography> 
         </Box>

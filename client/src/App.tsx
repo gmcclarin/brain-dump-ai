@@ -6,14 +6,21 @@ import Header from "./components/Header";
 
 function App() {
   return (
-    <Box>
+    <Box sx={{
+      display: "flex",
+      flexDirection: "column",
+      minHeight: "100vh"
+    }}>
       <Header />
       <Box
+      component="main"
         sx={{
+          flex: 1,
           display: "flex",
           flexDirection: "column",
           padding: 5,
           minHeight: 0,
+          overFlow: "auto"
         }}
       >
         <Routes>
