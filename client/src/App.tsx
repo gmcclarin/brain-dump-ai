@@ -8,7 +8,8 @@ function App() {
   return (
     <Box sx={{
       display: "flex",
-      padding: 5
+      padding: 5,
+      minHeight: 0
     }}>
     <Routes>
       <Route path="/" element={<Home />}/>

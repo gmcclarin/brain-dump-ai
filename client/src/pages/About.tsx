@@ -10,6 +10,7 @@ export default function About() {
         flexDirection: "column",
         justifyContent: "center",
         textAlign: "center",
+        flex: 1
       }}
     >
       <Typography variant="h3" fontWeight="bold" gutterBottom>
