@@ -1,4 +1,4 @@
-import { AppBar, Button, Toolbar, Typography } from "@mui/material";
+import { AppBar, Box, Button, Toolbar, Typography } from "@mui/material";
 import { Link as RouterLink } from "react-router-dom";
 
 export default function Header() {
@@ -13,6 +13,7 @@ export default function Header() {
       <Toolbar
         sx={{
           justifyContent: "space-between",
+          alignItems: "center"
         }}
       >
         <Typography
@@ -23,13 +24,22 @@ export default function Header() {
         >
           🧠 Brain Dump
         </Typography>
-        <Button
+        <Box>
+            <Button
           component={RouterLink}
           to="/about"
           sx={{ textTransform: "none", fontWeight: 700, borderRadius:"25px", fontSize: "1.25rem", color:"white", padding: 2, ":hover": {backgroundColor: "gray"} }}
         >
           About
         </Button>
+        <Button
+         component={RouterLink}
+          to="/notes"
+          sx={{ textTransform: "none", fontWeight: 700, borderRadius:"25px", fontSize: "1.25rem", color:"white", padding: 2, ":hover": {backgroundColor: "gray"} }}>
+            Notes
+        </Button>
+        </Box>
+        
 
       </Toolbar>
     </AppBar>

@@ -3,6 +3,7 @@ import Home from "./pages/Home";
 import About from "./pages/About";
 import { Box } from "@mui/material";
 import Header from "./components/Header";
+import Notes from "./pages/Notes";
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
+          <Route path="/notes" element={<Notes />}/>
         </Routes>
       </Box>
     </Box>
