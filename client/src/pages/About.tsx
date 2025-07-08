@@ -1,13 +1,11 @@
 // src/pages/About.tsx
-import { Box, Typography, Button, Container } from "@mui/material";
+import { Box, Typography, Button } from "@mui/material";
 import { Link as RouterLink } from "react-router-dom";
 
 export default function About() {
   return (
-    <Container
-      maxWidth="sm"
+    <Box
       sx={{
-        minHeight: "100vh",
         display: "flex",
         flexDirection: "column",
         justifyContent: "center",
@@ -18,14 +16,13 @@ export default function About() {
         🧠 Brain Dump
       </Typography>
 
-      <Typography variant="body1" color="text.secondary" paragraph>
+      <Typography variant="body1" >
         Brain Dump is a minimalist note-taking app built for thinkers, not hoarders.
         Capture your thoughts, and let AI help you sort, summarize, and synthesize them.
       </Typography>
 
       <Typography
-        variant="caption"
-        color="text.disabled"
+        variant="body1"
         sx={{ fontStyle: "italic", mt: 3 }}
       >
         Built with React, Supabase, OpenAI — and a love for clarity.
@@ -41,6 +38,6 @@ export default function About() {
           ← Back to Notes
         </Button>
       </Box>
-    </Container>
+    </Box>
   );
 }
