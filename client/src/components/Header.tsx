@@ -1,4 +1,11 @@
-import { AppBar, Box, Button, Toolbar, Typography } from "@mui/material";
+import {
+  AppBar,
+  Avatar,
+  Box,
+  Button,
+  Toolbar,
+  Typography,
+} from "@mui/material";
 import { Link as RouterLink } from "react-router-dom";
 
 export default function Header() {
@@ -13,34 +20,64 @@ export default function Header() {
       <Toolbar
         sx={{
           justifyContent: "space-between",
-          alignItems: "center"
+          alignItems: "center",
         }}
       >
         <Typography
           variant="h6"
           component={RouterLink}
           to="/"
-          sx={{ textDecoration: "none", color: "inherit", borderRadius:"25px", fontWeight: 700, padding: 2, ":hover": {backgroundColor: "gray"} }}
+          sx={{
+            textDecoration: "none",
+            color: "inherit",
+            borderRadius: "25px",
+            fontWeight: 700,
+            padding: 2,
+            ":hover": { backgroundColor: "gray" },
+          }}
         >
           🧠 Brain Dump
         </Typography>
-        <Box>
-            <Button
-          component={RouterLink}
-          to="/about"
-          sx={{ textTransform: "none", fontWeight: 700, borderRadius:"25px", fontSize: "1.25rem", color:"white", padding: 2, ":hover": {backgroundColor: "gray"} }}
-        >
-          About
-        </Button>
-        <Button
-         component={RouterLink}
-          to="/notes"
-          sx={{ textTransform: "none", fontWeight: 700, borderRadius:"25px", fontSize: "1.25rem", color:"white", padding: 2, ":hover": {backgroundColor: "gray"} }}>
+        <Box sx={{
+            display:"flex",
+            alignItems: "center"
+        }}>
+          <Button
+            component={RouterLink}
+            to="/about"
+            sx={{
+              textTransform: "none",
+              fontWeight: 700,
+              borderRadius: "25px",
+              fontSize: "1.25rem",
+              color: "white",
+              padding: 2,
+              ":hover": { backgroundColor: "gray" },
+            }}
+          >
+            About
+          </Button>
+          <Button
+            component={RouterLink}
+            to="/notes"
+            sx={{
+              textTransform: "none",
+              fontWeight: 700,
+              borderRadius: "25px",
+              fontSize: "1.25rem",
+              color: "white",
+              padding: 2,
+              ":hover": { backgroundColor: "gray" },
+            }}
+          >
             Notes
-        </Button>
+          </Button>
+          <Avatar
+            sx={{
+              backgroundColor: "pink",
+            }}
+          ></Avatar>
         </Box>
-        
-
       </Toolbar>
     </AppBar>
   );
