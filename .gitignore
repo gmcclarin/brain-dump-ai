@@ -13,4 +13,4 @@
 /server/dist/
 
 # Env secrets
-/server/.env
+../server/.env
