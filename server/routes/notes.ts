@@ -55,5 +55,27 @@ router.get("/", async (_req: Request, res: Response) => {
     }
 })
 
+router.get("/:id", async (req:Request, res:Response) => {
+  const {id} = req.params;
+
+  if (!id) {
+    res.status(400).json({ error: "Note ID is required." });
+    return;
+  }
+
+  try {
+    const {data, error} = await supabase
+    .from("notes")
+    .select("*")
+    .eq("id", id)
+    .single();
+
+    res.status(200).json(data);
+  } catch (error) {
+    console.error("Error fetching note by id", error);
+    res.status(500).json(error)
+  }
+})
+
 export default router;
 
