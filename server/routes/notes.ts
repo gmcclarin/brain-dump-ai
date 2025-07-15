@@ -77,5 +77,25 @@ router.get("/:id", async (req:Request, res:Response) => {
   }
 })
 
+router.delete("/:id", async (req:Request, res:Response) => {
+  const { id } = req.params;
+
+  try {
+    const {error} = await supabase
+    .from("notes")
+      .delete()
+      .eq("id", id)
+
+    if (error) {
+      res.status(500).json({ error: "Failed to delete note." });
+      return;
+    }
+
+  } catch (error) {
+    console.error("An unexpected error occurred", error);
+    res.status(500).json({error:"Something went wrong"});
+  }
+})
+
 export default router;
 
