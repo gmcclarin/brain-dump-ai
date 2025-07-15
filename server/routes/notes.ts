@@ -91,6 +91,8 @@ router.delete("/:id", async (req:Request, res:Response) => {
       return;
     }
 
+    res.status(204).json({message: "Note deleted successfully"})
+
   } catch (error) {
     console.error("An unexpected error occurred", error);
     res.status(500).json({error:"Something went wrong"});
