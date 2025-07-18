@@ -99,5 +99,51 @@ router.delete("/:id", async (req:Request, res:Response) => {
   }
 })
 
+router.patch("/:id", async (req:Request, res:Response) => {
+  const { id } = req.params;
+  const { title, content } = req.body;
+
+  if (!id) {
+    res.status(400).json({ error: "Note ID is required." });
+    return;
+  }
+
+  if (!title && !content) {
+    res.status(400).json({ error: "Nothing to update." });
+    return;
+  }
+
+  try {
+    
+    let updates: Record<string, any> = {};
+    if (title) updates.title = title;
+
+    // If content is updated, also regenerate summary + tags
+    if (content) {
+      updates.content = content;
+      const { summary, tags } = await getNoteSummaryAndTags(content);
+      updates.summary = summary;
+      updates.tags = tags;
+    }
+
+    const {data, error} = await supabase
+    .from("notes")
+    .update(updates)
+    .eq("id", id)
+    .select("*")
+    .single();
+
+    if (error) {
+      console.error("Supabase update error:", error.message);
+      res.status(500).json({ error: "Failed to update note." });
+      return;
+    }
+    res.status(200).json({message: "Note updated successfully"})
+  } catch (err) {
+    console.error("Unexpected error:", err);
+    res.status(500).json({ error: "Something went wrong." });
+  }
+})
+
 export default router;
 
