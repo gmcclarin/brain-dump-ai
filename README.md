@@ -8,5 +8,6 @@ Brain Dump AI - Dump first. Make sense later.
 - Vite
 - React
 - Typescript
-
+- Postgres
+- Supabase
 

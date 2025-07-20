@@ -1,6 +1,6 @@
 import express, { Request, Response } from "express";
 import supabase from "../services/supabase";
-import { getNoteSummaryAndTags } from "../services/openai.js";
+import { getNoteSummaryAndTags } from "../services/openai";
 
 const router = express.Router();
 

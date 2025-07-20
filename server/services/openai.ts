@@ -1,8 +1,10 @@
-import OpenAI from "openai";
+// server/services/openai.ts
+import { OpenAI } from "openai";
 
 const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
 });
+
 
 interface NoteAIResponse {
   summary: string;
@@ -46,3 +48,5 @@ ${content}
     throw new Error("OpenAI returned invalid JSON");
   }
 }
+
+export default openai;
