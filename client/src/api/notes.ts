@@ -7,9 +7,7 @@ const PATH = "notes";
 // GET 
 const getNotes = async() => {
     const response = await fetch(`${BASE_URL}/${PATH}`);
-
     if (!response.ok) throw new Error("Failed to get notes");
-
     return response.json();
 }
 

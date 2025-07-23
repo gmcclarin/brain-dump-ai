@@ -2,23 +2,28 @@ import { Box, Grid } from "@mui/material";
 import NoteCard from "./NoteCard";
 import { useNotes } from "../api/notes";
 import type { Note } from "../types/Notes";
-import NoteForm from "../components/NoteForm";
+import NoteForm, { type NoteFormValues } from "../components/NoteForm";
+import { useCreateNote } from "../api/notes";
 
 
 export default function Notes() {
   const { data, isLoading } = useNotes();
+  const { mutateAsync: createNote} = useCreateNote();
 
   if (isLoading) {
     return "Loading ..."
   }
-  const createNote = () => {
-
+  const handleCreateNote = (note: NoteFormValues) => {
+    createNote(note);
   }
   return (
     <Grid container spacing={2}>
       <Grid size={{ xs: 6 }}>
-        <Box>
-          <NoteForm onSubmit={createNote} submitLabel="Save" />
+        <Box sx={{
+          // backgroundColor: "#393E46"
+          // backgroundColor: "white"
+        }}>
+          <NoteForm onSubmit={handleCreateNote} submitLabel="Save" />
         </Box>
       </Grid>
       <Grid size={{ xs: 6 }}>

@@ -34,12 +34,17 @@ export default function NoteForm ({
         <FormGroup>
             <TextField 
             onChange={handleChange}
-            label="title]"
+            label="title"
+            name="title"
+            variant="outlined"
+            
             />
             <TextField
             required
             onChange={handleChange}
             label="content"
+            name="content"
+            variant="outlined"
             multiline
             />
         </FormGroup>
