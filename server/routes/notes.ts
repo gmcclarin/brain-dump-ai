@@ -13,7 +13,6 @@ router.post("/", async (req:Request, res:Response) => {
     return;
   }
   try {
-    // 👉 Send to OpenAI
     const { summary, tags } = await getNoteSummaryAndTags(content);
 
     // 👉 Save to Supabase

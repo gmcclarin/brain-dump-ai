@@ -1,18 +1,16 @@
-// services/openai.ts
-
-import OpenAI from "openai";
 import dotenv from "dotenv";
 
 dotenv.config();
-
-const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
 
 const headers = {
   Authorization: `Bearer ${process.env.HF_API_KEY}`,
   "Content-Type": "application/json",
 };
 
-export async function getNoteSummaryAndTags (content: string) {
+export async function getNoteSummaryAndTags (content: string): Promise<{
+  summary: string;
+  tags: string[];
+}> {
     const prompt = `Summarize the following note and suggest 3-5 useful tags.\n\nNOTE:\n${content}\n\nRESPONSE:\nSummary:`;
 
     try {
@@ -47,5 +45,6 @@ export async function getNoteSummaryAndTags (content: string) {
 
     } catch (err) {
         console.error("❌ Hugging Face error:", err);
+        throw err;
     }
 }

@@ -7,6 +7,10 @@
     "outDir": "./dist",
     "baseUrl": ".",
     "strict": true,
+    "paths": {
+      "services/*": ["services/*"],        
+      "routes/*": ["routes/*"]              
+    },
     "esModuleInterop": true,
     "resolveJsonModule": true,
     "forceConsistentCasingInFileNames": true,
