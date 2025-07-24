@@ -31,23 +31,26 @@ export default function NoteForm ({
       }
     return (
        <Form onSubmit={handleSubmit} submitLabel={submitLabel}>
-        <FormGroup>
+        <FormGroup sx={{
+          margin:1
+        }}>
             <TextField 
             onChange={handleChange}
             label="title"
             name="title"
-            variant="outlined"
-            
-            />
+            variant="standard"
+            /></FormGroup>
+            <FormGroup sx={{margin:1}}>
             <TextField
             required
             onChange={handleChange}
             label="content"
             name="content"
-            variant="outlined"
+            variant="standard"
             multiline
             />
-        </FormGroup>
+            </FormGroup>
+        
        </Form> 
     )
 }

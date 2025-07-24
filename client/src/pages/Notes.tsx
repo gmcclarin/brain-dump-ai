@@ -20,14 +20,15 @@ export default function Notes() {
     <Grid container spacing={2}>
       <Grid size={{ xs: 6 }}>
         <Box sx={{
-          // backgroundColor: "#393E46"
+          backgroundColor: "#393E46",
+          padding: 5
           // backgroundColor: "white"
         }}>
           <NoteForm onSubmit={handleCreateNote} submitLabel="Save" />
         </Box>
       </Grid>
       <Grid size={{ xs: 6 }}>
-        {data.map((note: Note, idx: number) => {
+        {data && data.map((note: Note, idx: number) => {
           <NoteCard note={note} key={idx} />;
         })}
       </Grid>
